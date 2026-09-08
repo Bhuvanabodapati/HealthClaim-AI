@@ -139,3 +139,21 @@ Logistic Regression was selected as the final model based on cross-validation pe
 ```text
 [[78 54]
  [21 47]]
+```
+
+
+---
+
+## 📸 Application Preview
+
+### Claim Input – Part 1
+
+![Claim Input Part 1](screenshots/claim_input-part1.png)
+
+### Claim Input – Part 2
+
+![Claim Input Part 2](screenshots/claim_input-part2.png)
+
+### Prediction Result
+
+![Prediction Result](screenshots/prediction-result.png)
