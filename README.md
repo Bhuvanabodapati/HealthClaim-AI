@@ -1,67 +1,138 @@
-# 🏥 Health Claim Prediction
+# 🏥 HealthClaim-AI
 
-A machine learning-based web application that predicts whether a healthcare insurance claim is likely to be **Approved or Rejected** based on claim and patient-related information.
+### Machine Learning-Based Health Insurance Claim Prediction
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)](https://streamlit.io/)
+[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-orange?logo=scikit-learn)](https://scikit-learn.org/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/Bhuvanabodapati/HealthClaim-AI)
+
+> An end-to-end machine learning application that predicts whether a healthcare insurance claim is likely to be approved or rejected based on claim and patient-related attributes.
+
+### 🚀 Live Demo
+
+**[Open HealthClaim-AI →](https://healthclaim-ai.streamlit.app)**
+
+### 💻 Source Code
+
+**[GitHub Repository →](https://github.com/Bhuvanabodapati/HealthClaim-AI)**
+
+---
 
 ## 📌 Project Overview
 
-The project uses **Logistic Regression** to classify healthcare insurance claims.
+HealthClaim-AI is a machine learning-based healthcare insurance claim prediction system designed to assist in the preliminary assessment of insurance claims.
 
-The trained machine learning model is integrated with a **Streamlit** web application where users can enter claim details and receive:
+The project follows an end-to-end ML workflow:
+
+**Data → Exploration → Preprocessing → Model Training → Model Evaluation → Threshold Selection → Model Serialization → Streamlit Deployment**
+
+The application provides an interactive interface where users can enter claim information and receive:
 
 - Claim approval/rejection prediction
 - Prediction probability
-- Model-based explanation of the result
+- Simple interpretation of the model output
+
+The system is intended as an **educational machine learning demonstration** and is not designed for real-world insurance or medical decision-making.
+
+---
 
 ## 🎯 Problem Statement
 
-Healthcare insurance companies process a large number of claims. Manual claim evaluation can be time-consuming and may lead to inconsistent decisions.
+Insurance claim processing can involve reviewing multiple factors such as claim amount, previous claims, previous rejections, missing documentation, provider risk, diagnosis, and procedure type.
 
-This project aims to build a machine learning system that can assist in predicting claim outcomes based on historical claim information.
+The objective of this project is to build a machine learning classification system that can learn patterns from historical claim data and predict the likely outcome of a new claim.
 
-## 🚀 Features
+### Objective
 
-- Patient age input
-- Claim amount input
-- Previous claims information
-- Previous rejection information
-- Missing document selection
-- Provider risk selection
-- Diagnosis selection
-- Procedure selection
-- Claim approval/rejection prediction
-- Prediction probability display
-- Custom classification threshold
+Build a classification model that:
 
-## 🤖 Machine Learning
+1. Processes structured healthcare claim data
+2. Handles numerical and categorical features
+3. Learns patterns associated with claim outcomes
+4. Produces a probability-based prediction
+5. Provides predictions through an interactive web application
 
-### Model Used
+---
 
-**Logistic Regression**
+## ✨ Key Features
 
-The project also evaluated a Random Forest model and compared the models using multiple evaluation metrics.
+- 🧠 **Machine Learning Classification**
+  - Logistic Regression used as the final selected model
 
-### Model Selection
+- 📊 **Model Evaluation**
+  - Cross-validation
+  - ROC-AUC
+  - F1 Score
+  - Recall / Sensitivity
+  - Specificity
+  - Confusion Matrix
 
-Based on the evaluation performed during the project, Logistic Regression was selected as the final model.
+- 🎚️ **Decision Threshold Optimization**
+  - A classification threshold of **0.35** was selected to improve the balance between recall and other classification metrics.
 
-The selected classification threshold is:
+- 🔄 **Preprocessing Pipeline**
+  - Numerical and categorical feature preprocessing
+  - Saved preprocessing object for consistent inference
 
-**0.35**
+- 💾 **Model Serialization**
+  - Trained model and preprocessing pipeline are stored using `joblib`
 
-A probability greater than or equal to 0.35 is classified as **Claim Approved**, while a probability below 0.35 is classified as **Claim Rejected**.
+- 🖥️ **Interactive Streamlit Application**
+  - User-friendly claim input interface
+  - Real-time prediction
+  - Prediction probability
+  - Human-readable result
+
+- ☁️ **Cloud Deployment**
+  - Deployed using Streamlit Community Cloud
+
+---
+
+## 🧠 Machine Learning Approach
+
+### 1. Data Preparation
+
+The healthcare claims dataset is loaded and prepared for machine learning.
+
+The workflow includes:
+
+- Data inspection
+- Feature selection
+- Missing-value handling
+- Numerical feature preprocessing
+- Categorical feature encoding
+- Train-test splitting
+
+### 2. Models Evaluated
+
+Two classification models were evaluated:
+
+| Model | Purpose |
+|---|---|
+| Logistic Regression | Interpretable baseline classification model |
+| Random Forest | Non-linear ensemble comparison model |
+
+### 3. Model Selection
+
+Logistic Regression was selected as the final model based on cross-validation performance and its stronger recall/F1 trade-off for this project.
+
+---
 
 ## 📊 Model Performance
 
-### Logistic Regression
+### Final Model: Logistic Regression
+
+**Classification Threshold:** `0.35`
 
 | Metric | Score |
 |---|---:|
-| CV Mean AUC | 0.677 |
-| CV Mean F1 | 0.389 |
-| Test AUC | 0.656 |
-| Test F1 | 0.556 |
-| Test Recall | 0.691 |
-| Test Specificity | 0.591 |
+| CV Mean AUC | **0.677** |
+| CV Mean F1 | **0.389** |
+| Test AUC | **0.656** |
+| Test F1 | **0.556** |
+| Test Recall | **0.691** |
+| Test Specificity | **0.591** |
 
 ### Confusion Matrix
 
